@@ -22,4 +22,26 @@
         </field>
     </record>
 
+    <record id="view_partner_search_inherit_customer_code" model="ir.ui.view">
+        <field name="name">res.partner.search.inherit.customer_code</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <!-- Add customer_code field to search -->
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="customer_code"/>
+            </xpath>
+
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="filter_domain">
+                    ['|', '|', '|', '|', '|', ('display_name', 'ilike', self),
+                     ('ref', 'ilike', self), ('email', 'ilike', self),
+                     ('vat', 'ilike', self), ('company_registry', 'ilike', self),
+                     ('customer_code', 'ilike', self)]
+                </attribute>
+            </xpath>
+
+        </field>
+    </record>
+
 </odoo>
