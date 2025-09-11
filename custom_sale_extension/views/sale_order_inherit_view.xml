@@ -1,0 +1,26 @@
+<odoo>
+    <record id="view_order_form_inherit_internal_ref" model="ir.ui.view">
+        <field name="name">sale.order.form.internal.ref</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Add field below existing order fields -->
+            <xpath expr="//sheet/notebook" position="before">
+                <group>
+                    <field name="internal_reference"/>
+                </group>
+            </xpath>
+
+            <!-- Add custom button to header -->
+            <xpath expr="//header" position="inside">
+                <button name="action_internal_confirm"
+                        string="Internal confirmation"
+                        type="object"
+                        class="btn-primary"
+                        attrs="{'invisible': ['|',('state', '=', 'sale'),('state', '=', 'cancelled')]}"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

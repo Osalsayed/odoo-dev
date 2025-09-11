@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Odoo log and temporary files
+*.log
+*.swp
+
+# Database files
+*.db
+*.sqlite
+
+# Package and IDE files
+*.zip
+*.tar.gz
+*.egg-info/
+*.iml
+*.idea/
+*.vscode/
