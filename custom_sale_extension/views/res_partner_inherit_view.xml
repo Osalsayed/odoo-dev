@@ -9,4 +9,17 @@
             </xpath>
         </field>
     </record>
+
+     <record id="view_partner_tree_inherit_customer_code" model="ir.ui.view">
+        <field name="name">res.partner.tree.inherit.customer_code</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <!-- Add the customer_code field after the name column -->
+            <xpath expr="//tree/field[@name='translated_display_name']" position="after">
+                <field name="customer_code" string="Customer Code"/>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
