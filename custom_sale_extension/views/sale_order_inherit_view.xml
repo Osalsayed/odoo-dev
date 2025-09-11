@@ -19,7 +19,7 @@
                         type="object"
                         class="btn-primary"
                         attrs="{'invisible': ['|',('state', '=', 'sale'),('state', '=', 'cancel')]}"
-                        groups="sales_team.group_sale_salesman_all_leads"/>
+                        groups="custom_sale_extension.group_internal_sales_validator"/>
             </xpath>
 
         </field>

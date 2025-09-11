@@ -9,6 +9,7 @@
     'depends': ['base','sale_management'],   # dependency on sales
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
         'data/ir_sequence_data.xml',
         'views/res_partner_inherit_view.xml',
         'views/sale_order_inherit_view.xml',
