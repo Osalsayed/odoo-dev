@@ -3,6 +3,7 @@
     'version': '16.0.1.0.0',
     'summary': 'Extension of Sales Order with extra fields and buttons',
     'category': 'Sales',
+    'sequence': 1,
     'author': 'Osama Al-Khalifa',
     'website': '',
     'depends': ['base','sale_management'],   # dependency on sales

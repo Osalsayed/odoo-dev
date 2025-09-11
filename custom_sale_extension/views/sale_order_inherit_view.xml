@@ -18,7 +18,7 @@
                         string="Internal confirmation"
                         type="object"
                         class="btn-primary"
-                        attrs="{'invisible': ['|',('state', '=', 'sale'),('state', '=', 'cancelled')]}"/>
+                        attrs="{'invisible': ['|',('state', '=', 'sale'),('state', '=', 'cancel')]}"/>
             </xpath>
 
         </field>
