@@ -3,7 +3,14 @@ from odoo import models, fields, api
 class ResPartnerInherit(models.Model):
     _inherit = 'res.partner'
 
-    customer_code = fields.Char(string="Customer Code", readonly=True,store=True, copy=False, index=True, unique=True,search=True)
+    customer_code = fields.Char(string="Customer Code",
+                                readonly=True,
+                                store=True,
+                                copy=False,
+                                index=True,
+                                unique=True,
+                                search=True,
+                                groups="sales_team.group_sale_salesman_all_leads")
 
     @api.model
     def create(self, vals):

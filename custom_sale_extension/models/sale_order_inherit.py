@@ -3,7 +3,9 @@ from odoo import models, fields, api
 class SaleOrderInherit(models.Model):
     _inherit = 'sale.order'
 
-    internal_reference = fields.Char(string="Internal Reference", readonly=True)
+    internal_reference = fields.Char(string="Internal Reference",
+                                     readonly=True,
+                                     groups="sales_team.group_sale_salesman_all_leads")
 
     def action_internal_confirm(self):
         """Custom button: generate internal reference"""
