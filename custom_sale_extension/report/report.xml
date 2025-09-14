@@ -1,0 +1,11 @@
+<odoo>
+    <report
+        id="action_report_internal_sale_confirmation"
+        model="sale.order"
+        string="Internal Sale Confirmation"
+        report_type="qweb-pdf"
+        name="custom_sale_extension.report_internal_sale_confirmation"
+        file="custom_sale_extension.report_internal_sale_confirmation"
+        print_report_name="'Internal_Sale_Confirmation_' + object.name"
+    />
+</odoo>

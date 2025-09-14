@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_internal_sale_confirmation">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <h2 style="text-align:center;">Internal Sale Confirmation</h2>
+                <t t-foreach="docs" t-as="doc">
+                    <table class="table table-sm mt32" style="width:100%; border:1px solid #000; border-collapse: collapse; margin-top:20px;">
+                        <tr>
+                            <td style="border:1px solid #000; padding:8px;"><strong>Order Number</strong></td>
+                            <td style="border:1px solid #000; padding:8px;">
+                                <span t-field="doc.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid #000; padding:8px;"><strong>Internal Reference</strong></td>
+                            <td style="border:1px solid #000; padding:8px;">
+                                <span t-field="doc.internal_reference"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid #000; padding:8px;"><strong>Customer</strong></td>
+                            <td style="border:1px solid #000; padding:8px;">
+                                <span t-field="doc.partner_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid #000; padding:8px;"><strong>Creation Date</strong></td>
+                            <td style="border:1px solid #000; padding:8px;">
+                                <span t-field="doc.date_order" t-options="{'widget': 'date'}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid #000; padding:8px;"><strong>Total Amount</strong></td>
+                            <td style="border:1px solid #000; padding:8px;">
+                                <span t-field="doc.amount_total" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
+                            </td>
+                        </tr>
+                    </table>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

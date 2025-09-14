@@ -11,6 +11,8 @@
         'security/ir.model.access.csv',
         'security/security.xml',
         'data/ir_sequence_data.xml',
+        'report/report.xml',
+        'report/report_internal_sale_confirmation.xml',
         'views/res_partner_inherit_view.xml',
         'views/sale_order_inherit_view.xml',
     ],
