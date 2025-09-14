@@ -12,6 +12,7 @@
                 </group>
             </xpath>
 
+
             <!-- Add custom button to header -->
             <xpath expr="//header" position="inside">
                 <button name="action_internal_confirm"
@@ -21,6 +22,14 @@
                         attrs="{'invisible': ['|',('state', '=', 'sale'),('state', '=', 'cancel')]}"
                         groups="custom_sale_extension.group_internal_sales_validator"/>
             </xpath>
+
+              <xpath expr="//header" position="inside">
+            <button name="%(action_report_internal_sale_confirmation)d"
+                    string="Print Internal Confirmation"
+                    type="action"
+                    class="btn-primary"
+                    attrs="{'invisible': [('internal_reference','=',False)]}"/>
+        </xpath>
 
         </field>
     </record>

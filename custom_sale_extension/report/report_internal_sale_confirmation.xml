@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+
     <template id="report_internal_sale_confirmation">
         <t t-call="web.basic_layout">
             <div class="page">

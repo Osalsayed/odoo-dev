@@ -1,11 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <report
-        id="action_report_internal_sale_confirmation"
-        model="sale.order"
-        string="Internal Sale Confirmation"
-        report_type="qweb-pdf"
-        name="custom_sale_extension.report_internal_sale_confirmation"
-        file="custom_sale_extension.report_internal_sale_confirmation"
-        print_report_name="'Internal_Sale_Confirmation_' + object.name"
-    />
+    <data>
+        <record id="action_report_internal_sale_confirmation" model="ir.actions.report">
+            <field name="binding_model_id" eval="False"/>
+            <field name="name">Internal Sale Confirmation</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">custom_sale_extension.report_internal_sale_confirmation</field>
+            <field name="print_report_name">'Internal_Sale_Confirmation_' + object.name</field>
+        </record>
+    </data>
 </odoo>

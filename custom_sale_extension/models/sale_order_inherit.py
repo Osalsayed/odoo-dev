@@ -1,4 +1,6 @@
 from odoo import models, fields, api
+from odoo.exceptions import UserError
+
 
 class SaleOrderInherit(models.Model):
     _inherit = 'sale.order'
@@ -7,8 +9,10 @@ class SaleOrderInherit(models.Model):
                                      readonly=True,
                                      groups="sales_team.group_sale_salesman_all_leads")
 
+
     def action_internal_confirm(self):
         """Custom button: generate internal reference"""
+
         for order in self:
             if not order.internal_reference:
                 order.internal_reference = f"REF-{order.name}"
@@ -17,3 +21,4 @@ class SaleOrderInherit(models.Model):
                 title="Internal Confirmation",
                 sticky=False  # True if you want it to stay
             )
+
