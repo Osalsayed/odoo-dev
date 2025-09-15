@@ -1,4 +1,5 @@
 <odoo>
+                   <!--    form    -->
     <record id="view_order_form_inherit_internal_ref" model="ir.ui.view">
         <field name="name">sale.order.form.internal.ref</field>
         <field name="model">sale.order</field>
