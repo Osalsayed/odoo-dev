@@ -6,7 +6,6 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
 
-            <!-- Add field below existing order fields -->
             <xpath expr="//sheet/notebook" position="before">
                 <group>
                     <field name="internal_reference"/>
@@ -14,7 +13,6 @@
             </xpath>
 
 
-            <!-- Add custom button to header -->
             <xpath expr="//header" position="inside">
                 <button name="action_internal_confirm"
                         string="Internal confirmation"

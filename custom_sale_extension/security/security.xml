@@ -1,5 +1,4 @@
 <odoo>
-    <!-- Internal Sales Validator Group -->
     <record id="group_internal_sales_validator" model="res.groups">
         <field name="name">Internal Sales Validator</field>
         <field name="category_id" ref="base.module_category_sales_sales"/>
