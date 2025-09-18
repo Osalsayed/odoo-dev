@@ -15,6 +15,7 @@
         'report/report_internal_sale_confirmation.xml',
         'views/res_partner_inherit_view.xml',
         'views/sale_order_inherit_view.xml',
+        'views/duplicate_quotation_wizard_view.xml',
     ],
     'installable': True,
     'application': False,
