@@ -27,6 +27,22 @@ class SaleOrderInherit(models.Model):
             if not order.order_line:
                 raise UserError("Cannot confirm internally. Order must have at least one order line.")
 
+            if not self.env.context.get('force_internal_confirm', False):
+                duplicate = order._check_duplicate_quotation()
+                if duplicate:
+                    return {
+                        'name': 'Duplicate Quotation Found',
+                        'type': 'ir.actions.act_window',
+                        'res_model': 'duplicate.quotation.wizard',
+                        'view_mode': 'form',
+                        'target': 'new',
+                        'context': {
+                            'dialog_size': 'extra-large',
+                            'default_order_id': order.id,
+                            'default_duplicate_order_id': duplicate.id,
+                        }
+                    }
+
             if not order.internal_reference:
                 order.internal_reference = f"REF-{order.name}"
             order.env.user.notify_info(
@@ -46,4 +62,26 @@ class SaleOrderInherit(models.Model):
 
         # Proceed with standard confirmation (Odoo core will handle order line validation)
         return super(SaleOrderInherit, self).action_confirm()
+
+    def _check_duplicate_quotation(self):
+        """Check for duplicates: same customer + exact same set of products"""
+        for order in self:
+            product_ids = set(order.order_line.mapped('product_id.id'))
+            if not product_ids:
+                continue
+
+            # Search all other quotations for this customer
+            duplicates = self.search([
+                ('id', '!=', order.id),
+                ('partner_id', '=', order.partner_id.id),
+                ('state', 'in', ['draft', 'sent']),
+            ])
+
+            for dup in duplicates:
+                dup_products = set(dup.order_line.mapped('product_id.id'))
+                if dup_products == product_ids:
+                    return dup  # Exact match found
+
+        return False
+
 
