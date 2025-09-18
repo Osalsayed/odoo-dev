@@ -9,6 +9,7 @@
             <xpath expr="//sheet/notebook" position="before">
                 <group>
                     <field name="internal_reference"/>
+                    <field name="has_validator_group" invisible="1"/>
                 </group>
             </xpath>
 
@@ -18,8 +19,7 @@
                         string="Internal confirmation"
                         type="object"
                         class="btn-primary"
-                        attrs="{'invisible': ['|',('state', '=', 'sale'),('state', '=', 'cancel')]}"
-                        groups="custom_sale_extension.group_internal_sales_validator"/>
+                        attrs="{'invisible': ['|', '|', ('state', 'in', ['sale', 'cancel']), ('has_validator_group', '=', False), ('internal_reference', '!=', False)]}"/>
             </xpath>
 
               <xpath expr="//header" position="inside">
